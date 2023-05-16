@@ -1,12 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Home!</title>
-</head>
-<body>
-    <h1>le paglu dance</h1>
-</body>
-</html>
+{% extends 'blog/base.html'%}
+<!-- for importing the content from base.html -->
+
+<!-- for giving the base.html what section is changing -->
+{% block content %}
+<!-- for looping in html or for writing condition-->
+    {% for post in posts %}
+        <h1>{{post.title}}</h1>
+        <p>By {{post.author}} on {{post.date_posted}}</p>
+        <p>{{post.content}}</p>
+    {% endfor %} 
+    <!-- to end the for loop -->
+{% endblock content %}

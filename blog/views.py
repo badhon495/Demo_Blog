@@ -6,22 +6,25 @@ posts = [
         'author' : 'badhon',
         'title' : 'Blog Post',
         'Content' : 'First Post Content',
-        'Date posted' : 'August 27, 2018'
+        'date_posted' : 'August 27, 2018'
     },
     
     {
         'author' : 'badhon_xtra',
         'title' : 'New Blog Post',
         'Content' : 'Second Post Content',
-        'Date posted' : 'August 27, 2019'
+        'date_posted' : 'August 27, 2019'
     }
 ]
 
 def home(request):
     # return HttpResponse('<h1>Blog Home</h1>') #eta use kora jabe na karon httpsrespons e eto boro html code lekha jhamela. tai amra arekta use kori
-    return render(request, 'blog/home.html')
+    context = {
+        'posts' : posts
+    }
+    return render(request, 'blog/home.html', context)
 # Create your views here.
 
 
 def about(request):
-    return render(request, 'blog/about.html') 
+    return render(request, 'blog/about.html', {'title' : 'About'}) 
