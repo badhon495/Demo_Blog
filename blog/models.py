@@ -2,7 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 
-class post(models.Model):
+class Post(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
     date_posted = models.DateTimeField(default=timezone.now)
@@ -12,3 +12,5 @@ class post(models.Model):
     author = models.ForeignKey(User, on_delete= models.CASCADE)
     #here user can have multiple post but one post can only have one user. if user deletes his profile then the on_delete comes to play. we are passing models.CASCADE that means we are telling it to delete the post as well. this user works as key.
 
+    def __str__(self):
+        return self.title #where the fuck this self.title coming from?

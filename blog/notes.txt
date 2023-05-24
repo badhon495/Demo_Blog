@@ -1,0 +1,18 @@
+---> 1. to set user
+# from blog.models import post
+# from django.contrib.auth.models import User
+# User.objects.all() ---> it will provide all the username. ??idk how he got that. but it shows two names??
+# User.objects.filter(username = 'the name you want to filter')
+# User.objects.first() --> it will show the first name
+# user = User.objects.filter(username = 'name') --> to assign a variable on user
+# user.id = () --> it shows the id
+# user.pk = () --> it will also show id
+####keep in mind that you have to use bracket properly. otherwise it will only show the address not value
+
+----> 2. to set post
+# Post.objects.all() --> it will show all the post.
+# <variable name> = Post(title = 'title', content = 'contents') --> to add new post
+# <variable name>.save() --> to save the post on object
+# Post.objects.first().author.email --> to get email address of the first post author
+# user.post_set.create(title = '', content = '') --> it will automaticallt create a post under the same author and saved it.
+
