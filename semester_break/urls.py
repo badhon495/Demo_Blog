@@ -15,10 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from users import views as user_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('blog/', include('blog.urls'))
+    path('register/', user_views.register, name = 'register'),
+    path('', include('blog.urls'))
     #imported inculde just to create another path
     #first parameter ke faka dile extra kono kisu lekha lagbe na 8080 er por
     #blog ba admin er por / eita deoa hoi karon tahole sudhu blog lekha link and / soho link duitai eita te dhukbe. eita user er jnno convinient
