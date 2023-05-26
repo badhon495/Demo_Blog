@@ -9,19 +9,19 @@
             <!-- here you have to write a CSRF token. it protects the form from attack. you must have to add it. otherwise your form wont work.-->
             {% csrf_token %}
             <fieldset class = 'form-group'>
-                <legend class ='border-bottom mb-4'>Join Today</legend>
+                <legend class ='border-bottom mb-4'>Log In</legend>
                 <!-- mb - mergin bottom -->
                 {{form|crispy}}
                 <!-- to formate the file using crispy -->
             </fieldset>
             <div class="form-group">
-                <button class="btn btn-outline-info" type = "submit">Sign Up</button>
+                <button class="btn btn-outline-info" type = "submit">Log In</button>
             </div>
         </form>
         <div class="border_top pt-3">
             <!-- pt - padding top -->
             <small class="text-muted">
-                Already Have An Account? <a class="ml-2" href='{% url "login" %}'>Sign In</a>
+                Need an Account? <a class="ml-2" href='{% url "register" %}'>Sign Up Now</a>
                 <!-- ml - mergin left -->
             </small>
         </div>

@@ -16,10 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from users import views as user_views
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('register/', user_views.register, name = 'register'),
+     path('profile/', user_views.profile, name = 'profile'),
+    path('login/', auth_views.LoginView.as_view(template_name = 'users/login.html'), name = 'login'),
+    # used as_view to change the default direction of where django would serach for login html page.
+    path('logout/', auth_views.LogoutView.as_view(template_name = 'users/logout.html'), name = 'logout'),
     path('', include('blog.urls'))
     #imported inculde just to create another path
     #first parameter ke faka dile extra kono kisu lekha lagbe na 8080 er por

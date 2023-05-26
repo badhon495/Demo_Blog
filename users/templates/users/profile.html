@@ -1,0 +1,7 @@
+{% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
+<!-- this will take care of forms -->
+<!-- we use percentage sign on html because it means the data is dynamic -->
+{% block content %}
+    <h1>{{ user.username }}</h1>
+{% endblock content %}

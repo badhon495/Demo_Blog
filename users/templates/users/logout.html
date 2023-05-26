@@ -1,0 +1,14 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<!-- this block content with percentage sign means that the content section from blog base will be overriden by this content section. check stackoverflow for better understanding -->
+    <h2>You Logged Out Succesfully</h2>
+        <div class="border_top pt-3">
+            <!-- pt - padding top -->
+            <small class="text-muted">
+                <a href='{% url "login" %}'>Log In Again?</a>
+                <!-- ml - mergin left -->
+            </small>
+        </div>
+    
+
+{% endblock content %}
