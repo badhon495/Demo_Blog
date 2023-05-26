@@ -16,3 +16,9 @@
 # Post.objects.first().author.email --> to get email address of the first post author
 # user.post_set.create(title = '', content = '') --> it will automaticallt create a post under the same author and saved it.
 
+
+----> 3. reset password
+# just do a google and go to stack overflow
+---------------------------------------------------------------------------------------------------------
+
+1. python manage.py startapp users --> to create a user login page.
