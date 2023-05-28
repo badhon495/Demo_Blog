@@ -3,5 +3,26 @@
 <!-- this will take care of forms -->
 <!-- we use percentage sign on html because it means the data is dynamic -->
 {% block content %}
-    <h1>{{ user.username }}</h1>
+<div class="content-section">
+    <div class="media">
+      <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+      <div class="media-body">
+        <h2 class="account-heading">{{ user.username }}</h2>
+        <p class="text-secondary">{{ user.email }}</p>
+      </div>
+    </div>
+    <form method="POST">
+        <!-- here you have to write a CSRF token. it protects the form from attack. you must have to add it. otherwise your form wont work.-->
+        {% csrf_token %}
+        <fieldset class = 'form-group'>
+            <legend class ='border-bottom mb-4'>Join Today</legend>
+            <!-- mb - mergin bottom -->
+            {{form|crispy}}
+            <!-- to formate the file using crispy -->
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-outline-info" type = "submit">Sign Up</button>
+        </div>
+    </form>
+  </div>
 {% endblock content %}

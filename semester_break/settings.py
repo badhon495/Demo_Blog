@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -130,3 +130,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOGIN_REDIRECT_URL = 'blog-home'  #to change what page should i land after login
 LOGIN_URL = 'login'  #uporer ta blog-home deoa and nicher ta only login kn???
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') 
+MEDIA_URL = '/media/'
+#media root is the location of the directory that photos will be saved. os.path makes sure that it will work on every system possible. BASE_DIR  means blog. but by writing this code we are creating a media floder in our base directory and 

@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path, include
 from users import views as user_views
 from django.contrib.auth import views as auth_views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,3 +33,7 @@ urlpatterns = [
     #blog ba admin er por / eita deoa hoi karon tahole sudhu blog lekha link and / soho link duitai eita te dhukbe. eita user er jnno convinient
 
 ]
+
+if settings.DEBUG:
+    urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+    # it is only for debug mode. if you are working on your computer. then it is suitable to use. otherwise you have to use other methods for it.
