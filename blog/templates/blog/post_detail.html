@@ -1,0 +1,23 @@
+<!-- similar as home.html -->
+
+{% extends 'blog/base.html'%}
+<!-- for importing the content from base.html -->
+
+<!-- for giving the base.html what section is changing -->
+{% block content %}
+<!-- for looping in html or for writing condition-->
+    <article class="media content-section">
+        <img class="rounded-circle article-img" src="{{ object.author.profile.image.url }}">  
+        <!-- using bootstrap class on upper line -->
+        <div class="media-body">
+            <div class="article-metadata">
+            <a class="mr-2" href="#">{{ object.author }}</a>
+            <small class="text-muted">{{ object.date_posted|date:'d F, Y'}}</small> 
+            <!-- for formatting date we used this date 'd f,y . to make your own formate vsit django website. dont put any gap after post.date_posted|date: and before the formate. it gives an error -->
+            </div>
+            <h2 class="article-title">{{ object.title }}</h2>
+            <p class="article-content">{{ object.content }}</p>
+        </div>
+        </article>
+    <!-- to end the for loop -->
+{% endblock content %}

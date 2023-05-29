@@ -11,17 +11,19 @@
         <p class="text-secondary">{{ user.email }}</p>
       </div>
     </div>
-    <form method="POST">
+    <form method="POST" enctype="multipart/form-data">
+        <!-- enctype is for saving image in background. without it profile pic will not be saved.-->
         <!-- here you have to write a CSRF token. it protects the form from attack. you must have to add it. otherwise your form wont work.-->
         {% csrf_token %}
         <fieldset class = 'form-group'>
             <legend class ='border-bottom mb-4'>Join Today</legend>
             <!-- mb - mergin bottom -->
-            {{form|crispy}}
-            <!-- to formate the file using crispy -->
+            {{ u_form|crispy }}
+            {{ p_form|crispy }}
+            <!-- to formate the file using crispy. here we used two crispy beacuse one for updating user details and other one for updating profile pic -->
         </fieldset>
         <div class="form-group">
-            <button class="btn btn-outline-info" type = "submit">Sign Up</button>
+            <button class="btn btn-outline-info" type = "submit">Update</button>
         </div>
     </form>
   </div>

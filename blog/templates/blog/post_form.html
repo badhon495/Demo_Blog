@@ -1,0 +1,23 @@
+{% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
+<!-- this will take care of forms -->
+<!-- we use percentage sign on html because it means the data is dynamic -->
+{% block content %}
+<!-- this block content with percentage sign means that the content section from blog base will be overriden by this content section. check stackoverflow for better understanding -->
+    <div class = 'content-section'>
+        <form method="POST">
+            <!-- here you have to write a CSRF token. it protects the form from attack. you must have to add it. otherwise your form wont work.-->
+            {% csrf_token %}
+            <fieldset class = 'form-group'>
+                <legend class ='border-bottom mb-4'>Blog Post</legend>
+                <!-- mb - mergin bottom -->
+                {{form|crispy}}
+                <!-- to formate the file using crispy -->
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type = "submit">Post</button>
+            </div>
+        </form>
+    </div>
+
+{% endblock content %}

@@ -6,13 +6,15 @@
 <!-- for looping in html or for writing condition-->
     {% for post in posts %}
         <article class="media content-section">
+          <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">  
+          <!-- using bootstrap class on upper line -->
             <div class="media-body">
               <div class="article-metadata">
                 <a class="mr-2" href="#">{{ post.author }}</a>
                 <small class="text-muted">{{ post.date_posted|date:'d F, Y'}}</small> 
                 <!-- for formatting date we used this date 'd f,y . to make your own formate vsit django website. dont put any gap after post.date_posted|date: and before the formate. it gives an error -->
               </div>
-              <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
+              <h2><a class="article-title" href=" {% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
               <p class="article-content">{{ post.content }}</p>
             </div>
           </article>

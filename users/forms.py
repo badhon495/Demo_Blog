@@ -14,12 +14,12 @@ class UserUpdateForm(forms.ModelForm):
     email = forms.EmailField()
 
     class Meta:
-        Model = User
+        model = User #model has to model, not Model
         fields = ['username', 'email']
 
 class ProfileUpdateForm(forms.ModelForm):
 
     class Meta:
-        Model = Profile
+        model = Profile
         fields = ['image']
 
