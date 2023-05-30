@@ -12,5 +12,6 @@ urlpatterns = [
     path('about/', views.about, name = 'blog-about'),
     path('post/<int:pk>/', views.PostDetailView.as_view(), name = 'post-detail'), #pk  means primary key. post/<int:pk> means it will got to post/primary key. here primary key post id.
     path('post/new/', views.PostCreateView.as_view(), name = 'post-create'), #nameofthemodel_form for this it will be post_form
-    path()
+    path('post/<int:pk>/update/', views.PostUpdateView.as_view(), name = 'post-update'),
+    path('post/<int:pk>/delete/', views.PostDeleteView.as_view(), name = 'post-delete') #post_confirm_delete.html
 ]

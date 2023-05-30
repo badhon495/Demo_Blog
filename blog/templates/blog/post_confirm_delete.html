@@ -1,0 +1,21 @@
+{% extends 'blog/base.html' %}
+<!-- we dont need crispy form here -->
+{% block content %}
+<!-- this block content with percentage sign means that the content section from blog base will be overriden by this content section. check stackoverflow for better understanding -->
+    <div class = 'content-section'>
+        <form method="POST">
+            <!-- here you have to write a CSRF token. it protects the form from attack. you must have to add it. otherwise your form wont work.-->
+            {% csrf_token %}
+            <fieldset class = 'form-group'>
+                <legend class ='border-bottom mb-4'>Delete Post</legend>
+                <h2>Are you sure you want to delete the post "{{ object.title }}</h2>
+                <!-- mb - mergin bottom -->
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-danger" type = "submit">Yes, Delete</button>
+                <a class="btn btn-outline-secondary" href="{% url 'post-detail' object.id %} ">Cancel</a>
+            </div>
+        </form>
+    </div>
+
+{% endblock content %}
